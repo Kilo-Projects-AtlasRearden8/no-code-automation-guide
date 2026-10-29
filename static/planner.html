@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Automation Planner — No-Code Automation for Beginners</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  @page { size: Letter; margin: 1.6cm; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color: #1f2937; margin: 0; padding: 14px; }
+  .header { border-bottom: 2px solid #111827; padding-bottom: 10px; margin-bottom: 16px; }
+  .header h1 { font-size: 22px; margin: 0 0 4px 0; }
+  .header .subtitle { font-size: 13px; color: #6b7280; margin: 0; }
+  .meta { display: flex; gap: 20px; font-size: 12.5px; color: #6b7280; margin-bottom: 14px; }
+  .meta div { border: 1px solid #e5e7eb; border-radius: 4px; padding: 4px 10px; }
+  .intro { font-size: 13px; margin-bottom: 14px; }
+  .day-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 16px; }
+  .day { border: 1px solid #d1d5db; border-radius: 6px; padding: 8px; page-break-inside: avoid; background: #fff; }
+  .day-name { font-size: 13px; font-weight: 700; color: #111827; border-bottom: 1px solid #d1d5db; padding-bottom: 4px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .slot { font-size: 12px; margin: 5px 0; padding: 5px 8px; border: 1px dashed #d1d5db; border-radius: 4px; background: #f9fafb; }
+  .slot b { color: #111827; }
+  .focus { margin-bottom: 18px; page-break-inside: avoid; }
+  .focus h3 { font-size: 15px; margin: 0 0 8px 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; }
+  .taskline { display: flex; align-items: flex-start; gap: 8px; margin: 6px 0; page-break-inside: avoid; }
+  .checkbox { width: 20px; height: 20px; border: 2px solid #111827; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .label { font-size: 13px; }
+  .note { font-size: 12px; color: #6b7280; margin-left: 4px; }
+  .rule { background: #eff6ff; border-left: 4px solid #2563eb; padding: 8px 12px; border-radius: 0 4px 4px 0; margin: 12px 0; font-size: 12.5px; page-break-inside: avoid; }
+  .rule b { color: #1e3a8a; }
+  footer { margin-top: 18px; padding-top: 10px; border-top: 1px solid #e5e7eb; font-size: 11.5px; color: #6b7280; }
+  @media screen {
+    body { max-width: 860px; margin: 0 auto; padding: 20px; background: #f9fafb; }
+    .screen-only { display: block; }
+  }
+  @media print {
+    body { padding: 0; background: #fff; font-size: 12px; }
+    .noprint { display: none !important; }
+    a::after { content: " (" attr(href) ")"; font-size: 9px; color: #6b7280; }
+    a[href^="#"] { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="noprint screen-only" style="margin-bottom:18px; padding:14px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; font-size:13px;">
+  <b>Tip:</b> Print this page (File &rarr; Print or Ctrl+P / Cmd+P) and fill it in by hand. Buttons and this notice hide automatically when you print.
+</div>
+
+<div class="header">
+  <h1>Weekly Automation Planner</h1>
+  <p class="subtitle">Plan your no-code automations for the week &mdash; one small step at a time</p>
+</div>
+
+<p class="meta">
+  <div>Week of: ______________</div>
+  <div>Printed: ______________</div>
+</div>
+
+<p class="intro">Pick one automation per day (or none &mdash; rest days count too). See <code>docs/</code> for step-by-step guides, and <code>scripts/</code> for tiny scripts you can run. Golden rule: test on copies, never move originals.</p>
+
+<h3>This week&rsquo;s focus</h3>
+<div class="focus">
+  <p class="taskline"><input type="checkbox" class="checkbox"><span class="label">My main automation goal this week:</span> <span class="note">________________________________</span></p>
+  <p class="taskline"><input type="checkbox" class="checkbox"><span class="label">Folder or files I&rsquo;ll work on (test copy first):</span> <span class="note">________________________________</span></p>
+  <p class="taskline"><input type="checkbox" class="checkbox"><span class="label">Which guide I&rsquo;ll follow:</span> <span class="note"> Email rules / Organizing files / Calendar reminders / App connections</span></p>
+</div>
+
+<div class="day-grid">
+  <div class="day"><div class="day-name">Monday</div><div class="slot"><b>Task:</b> ______________<br><input type="checkbox" class="checkbox" style="margin-top:4px;"><span style="font-size:11.5px;"> Done &bull; Tested on copy &bull; Previewed first</span></div></div>
+  <div class="day"><div class="day-name">Tuesday</div><div class="slot"><b>Task:</b> ______________<br><input type="checkbox" class="checkbox" style="margin-top:4px;"><span style="font-size:11.5px;"> Done &bull; Tested on copy &bull; Previewed first</span></div></div>
+  <div class="day"><div class="day-name">Wednesday</div><div class="slot"><b>Task:</b> ______________<br><input type="checkbox" class="checkbox" style="margin-top:4px;"><span style="font-size:11.5px;"> Done &bull; Tested on copy &bull; Previewed first</span></div></div>
+  <div class="day"><div class="day-name">Thursday</div><div class="slot"><b>Task:</b> ______________<br><input type="checkbox" class="checkbox" style="margin-top:4px;"><span style="font-size:11.5px;"> Done &bull; Tested on copy &bull; Previewed first</span></div></div>
+  <div class="day"><div class="day-name">Friday</div><div class="slot"><b>Task:</b> ______________<br><input type="checkbox" class="checkbox" style="margin-top:4px;"><span style="font-size:11.5px;"> Done &bull; Tested on copy &bull; Previewed first</span></div></div>
+  <div class="day"><div class="day-name">Saturday</div><div class="slot"><b>Task:</b> ______________<br><input type="checkbox" class="checkbox" style="margin-top:4px;"><span style="font-size:11.5px;"> Done &bull; Tested on copy &bull; Previewed first</span></div></div>
+  <div class="day"><div class="day-name">Sunday</div><div class="slot"><b>Task:</b> ______________<br><input type="checkbox" class="checkbox" style="margin-top:4px;"><span style="font-size:11.5px;"> Done &bull; Tested on copy &bull; Previewed first</span></div></div>
+</div>
+
+<div class="rule"><b>Golden rule:</b> Test on copies, never move originals. Every script defaults to a preview (dry-run) &mdash; it shows what it would do without changing anything. Add <code>--apply</code> only when you&rsquo;re sure.</div>
+
+<h3>Weekly check-in</h3>
+<p class="taskline"><input type="checkbox" class="checkbox"><span class="label">I reviewed what ran this week.</span></p>
+<p class="taskline"><input type="checkbox" class="checkbox"><span class="label">I turned off any connections or rules I no longer need.</span></p>
+<p class="taskline"><input type="checkbox" class="checkbox"><span class="label">Nothing personal, financial, or health-related was sent to a connection service.</span></p>
+<p class="taskline"><input type="checkbox" class="checkbox"><span class="label">I kept one automation going &mdash; small and steady beats big and overwhelming.</span></p>
+
+<footer>
+No-Code Automation for Beginners &mdash; Asdale Dynamics, LLC (Indiana, formed October 2026). Credit: Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.<br>
+MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.<br>
+Learn more: dylanasdale.github.io
+</footer>
+
+</body>
+</html>

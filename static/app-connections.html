@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Connections — No-Code Automation for Beginners</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Simple App Connections</h1>
+  <div class="credit">Published by <strong>Asdale Dynamics, LLC</strong> (Indiana, formed October 2026) &mdash; credit to Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="email-rules.html">Email rules</a>
+    <a href="file-organization.html">Organizing files</a>
+    <a href="calendar-reminders.html">Calendar reminders</a>
+    <a href="planner.html">Printable planner</a>
+  </nav>
+</header>
+
+<main>
+<h2>Connect two apps &mdash; without writing code</h2>
+<p>Want "when I get an email with an attachment, save it to a folder"? No-code connection services link two services so an event in one triggers an action in the other:</p>
+<ul>
+  <li><strong>Trigger:</strong> an email arrives with an attachment</li>
+  <li><strong>Action:</strong> save the attachment to your Documents folder</li>
+</ul>
+
+<h3>Popular no-code connection services (free tiers)</h3>
+<table>
+<thead><tr><th>Service</th><th>What it&rsquo;s good at</th><th>Free tier</th></tr></thead>
+<tbody>
+<tr><td>IFTTT</td><td>Simple one-step connections ("applets")</td><td>Yes</td></tr>
+<tr><td>Zapier</td><td>Multi-step connections ("zaps")</td><td>Yes (limited tasks/month)</td></tr>
+<tr><td>Make</td><td>Visual workflow builder</td><td>Yes (limited operations/month)</td></tr>
+</tbody>
+</table>
+
+<h3>Starter recipes to try</h3>
+<table>
+<thead><tr><th>When this happens</th><th>Do this</th><th>Service</th></tr></thead>
+<tbody>
+<tr><td>Email with attachment arrives</td><td>Save attachment to Drive/Dropbox</td><td>IFTTT / Zapier / Make</td></tr>
+<tr><td>New row added to a spreadsheet</td><td>Send yourself a reminder email</td><td>Zapier / Make</td></tr>
+<tr><td>Calendar event starting soon</td><td>Send a phone notification</td><td>IFTTT</td></tr>
+<tr><td>New photo added to a folder</td><td>Back it up to another folder</td><td>Make / folder watcher</td></tr>
+<tr><td>RSS feed updates</td><td>Save to a notes file</td><td>IFTTT / Make</td></tr>
+</tbody>
+</table>
+
+<h3>General steps</h3>
+<ol>
+  <li>Sign up with the account you want to connect.</li>
+  <li>Click <strong>Create</strong> / <strong>Make a zap</strong> / <strong>Create applet</strong>.</li>
+  <li>Choose the <strong>trigger app</strong> and event (e.g. Gmail &rarr; New attachment).</li>
+  <li>Connect your account (sign in when prompted).</li>
+  <li>Choose the <strong>action app</strong> and event (e.g. Google Drive &rarr; Upload file).</li>
+  <li>Map the fields (e.g. attachment &rarr; file, subject &rarr; file name).</li>
+  <li>Name it, turn it on, and test it once before relying on it.</li>
+</ol>
+
+<div class="rule"><b>Privacy-first rule:</b> never connect accounts that hold health, financial, or identity data unless you&rsquo;ve read the service&rsquo;s privacy policy. Start with low-stakes data, use the free tier first, and turn connections off when you&rsquo;re done with them.</div>
+
+<h3>Local-first option: the folder watcher</h3>
+<p><code>scripts/folder_watcher.py</code> watches a folder on your computer and notes whenever a new file appears &mdash; a private, local-only applet. It runs entirely on your machine, uploads nothing, and needs no account.</p>
+<pre><code># Preview: see what it would do, without writing anything
+python3 scripts/folder_watcher.py ~/Downloads
+
+# For real: log new files to connections.log
+python3 scripts/folder_watcher.py ~/Downloads --apply
+</code></pre>
+<p>With <code>--apply</code>, each new file is noted in <code>connections.log</code> (in the folder you run the script from) with the file name and time. It never moves, renames, or uploads anything. Press Ctrl-C to stop.</p>
+
+<div class="rule"><b>Safety:</b> connection services can read, create, and delete data in your connected accounts. Review the permissions before you authorize, and remove connections you no longer use.</div>
+
+<p class="small">Read the full guide: <code>docs/app-connections.md</code> &bull; See the script: <code>scripts/folder_watcher.py</code></p>
+</main>
+
+<footer>
+No-Code Automation for Beginners &mdash; Asdale Dynamics, LLC.<br>
+MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.<br>
+Learn more: <a href="https://dylanasdale.github.io" target="_blank" rel="noopener">dylanasdale.github.io</a>
+</footer>
+</div>
+</body>
+</html>

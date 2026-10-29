@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar Reminders — No-Code Automation for Beginners</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Calendar Reminders</h1>
+  <div class="credit">Published by <strong>Asdale Dynamics, LLC</strong> (Indiana, formed October 2026) &mdash; credit to Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="email-rules.html">Email rules</a>
+    <a href="file-organization.html">Organizing files</a>
+    <a href="app-connections.html">App connections</a>
+    <a href="planner.html">Printable planner</a>
+  </nav>
+</header>
+
+<main>
+<h2>Never forget an appointment, bill, or library book</h2>
+<p>Calendar reminders nudge you when something is coming up &mdash; no code, no new account needed. This guide covers two approaches: your calendar app&rsquo;s built-in reminders, and a tiny local script (<code>scripts/calendar_reminders.py</code>) that reads a plain text reminders file on your own computer.</p>
+
+<h3>Option 1: Your calendar app (no code at all)</h3>
+<h4>Google Calendar</h4>
+<ol>
+  <li>Open calendar.google.com and create an event (e.g. "Dentist appointment").</li>
+  <li>Click <strong>Add notification</strong> and choose when to be reminded (10 minutes, 1 hour, 1 day, or custom).</li>
+  <li>Set it to repeat if it&rsquo;s recurring (weekly meds, monthly bill).</li>
+  <li>Make sure notifications are on for the calendar.</li>
+</ol>
+<h4>Outlook Calendar</h4>
+<ol>
+  <li>Open the event and pick <strong>Remind me</strong> (when to be notified).</li>
+  <li>For repeating items, set <strong>Repeat</strong> (daily, weekly, monthly).</li>
+</ol>
+<h4>Apple Calendar (Mac / iPhone)</h4>
+<ol>
+  <li>Open the event, then click <strong>alert</strong> and choose when to be reminded.</li>
+  <li>Set <strong>Repeat</strong> for recurring events.</li>
+</ol>
+
+<h3>Option 2: The local reminders script</h3>
+<p><code>scripts/calendar_reminders.py</code> reads a <code>reminders.txt</code> file you maintain and tells you what&rsquo;s due today, coming up soon, or overdue &mdash; all on your own computer, no apps or accounts needed.</p>
+<p>A sample <code>reminders.txt</code>:</p>
+<pre><code># Reminder name | due date (YYYY-MM-DD) | message
+Electric bill | 2026-11-05 | Pay the electric bill
+Library books | 2026-11-10 | Return library books
+Dentist | 2026-11-01 | Dentist appointment
+</code></pre>
+
+<h4>Step 1: Create your reminders file</h4>
+<p>Create <code>reminders.txt</code> in your Documents folder with lines like the example above. Lines starting with <code>#</code> are comments.</p>
+
+<h4>Step 2: Run the check (dry run)</h4>
+<pre><code>python3 scripts/calendar_reminders.py ~/Documents/reminders.txt</code></pre>
+<p>You&rsquo;ll see what&rsquo;s due today, upcoming within 7 days, and overdue &mdash; plus a <code>mailto:</code> link for each one.</p>
+
+<h4>Step 3: Send email for real (optional)</h4>
+<pre><code>export SMTP_HOST=smtp.example.com
+export SMTP_USER=you@example.com
+export SMTP_PASS=your-app-password
+export FROM_EMAIL=you@example.com
+export TO_EMAIL=you@example.com
+python3 scripts/calendar_reminders.py ~/Documents/reminders.txt --apply</code></pre>
+<p>No credentials are stored in this script or the repo. <code>--apply</code> sends nothing unless all SMTP variables are set.</p>
+
+<h3>Make it a habit</h3>
+<p>Pick a regular time &mdash; every morning with coffee, or every Sunday evening &mdash; and run the check or glance at your calendar. You can even set a repeating event called "Check reminders."</p>
+
+<div class="rule"><b>Privacy:</b> All reminder data stays in <code>reminders.txt</code> on your computer. Nothing is uploaded. Do not commit <code>reminders.txt</code> &mdash; it&rsquo;s ignored by <code>.gitignore</code>.</div>
+
+<p class="small">Read the full guide: <code>docs/calendar-reminders.md</code> &bull; See the script: <code>scripts/calendar_reminders.py</code></p>
+</main>
+
+<footer>
+No-Code Automation for Beginners &mdash; Asdale Dynamics, LLC.<br>
+MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.<br>
+Learn more: <a href="https://dylanasdale.github.io" target="_blank" rel="noopener">dylanasdale.github.io</a>
+</footer>
+</div>
+</body>
+</html>
