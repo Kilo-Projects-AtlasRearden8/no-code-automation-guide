@@ -3,7 +3,7 @@
 .env.*
 .venv/
 __pycache__/
-reminders.txt
 connections.log
 dist/*.tmp
 node_modules/
+reminders.txt
